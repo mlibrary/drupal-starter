@@ -1,13 +1,25 @@
 # drupal-starter
 
-steps
+## Steps
 
-`./init.sh`
+1. Run the initialization script
 
-`docker-compose up -d`
+  ```
+  ./init.sh
+  ```
 
-go to `localhost:3333` in the browser; initialize your site
+2. Turn on the site
 
-`./post_install.sh`
+  ```
+  docker-compose up -d`
+  ```
 
-base database in is `db/starter.sql`. That will have the uuid
+3. Initialize the site in the browser. Go to http://localhost:3333
+
+4. Run the post install script. This will install drush and will dump the
+   database to `./starter.sql`. This will have the uuid. You can load this in
+   your production site.
+
+  ```
+  ./post_install.sh
+  ```
