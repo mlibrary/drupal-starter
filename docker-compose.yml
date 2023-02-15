@@ -5,14 +5,14 @@ services:
     image: mariadb
     volumes:
       - database:/var/lib/mysql
-      - ./drupal/db/synced_from_production.sql:/docker-entrypoint-initdb.d/synced_from_production.sql
+      #- ./db/synced_from_production.sql:/docker-entrypoint-initdb.d/synced_from_production.sql
     environment:
       - MARIADB_ROOT_PASSWORD=password
       - MARIADB_USER=user
       - MARIADB_PASSWORD=password
       - MARIADB_DATABASE=drupal
 
-  drupal:
+  web:
     build: .
     depends_on:
       - database
@@ -30,9 +30,11 @@ services:
       - ./composer.json:/opt/drupal/composer.json
       - ./composer.lock:/opt/drupal/composer.lock
       - ./config:/config-sync
-      - ./modules:/var/www/html/modules
       - ./themes:/var/www/html/themes
+      - ./modules:/var/www/html/modules/custom
+      - modules:/var/www/html/modules/contrib
     restart: always
 
 volumes:
   database:
+  modules:
