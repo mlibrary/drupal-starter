@@ -23,3 +23,9 @@
   ```
   ./post_install.sh
   ```
+
+## Notes
+
+The `/themes` folder maps to `/var/www/html/themes/custom` in the drupal container.
+
+The `/modules` folder maps to `/var/www/html/modules/custom` in the drupal container.
