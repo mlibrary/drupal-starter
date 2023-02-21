@@ -30,7 +30,7 @@ services:
       - ./composer.json:/opt/drupal/composer.json
       - ./composer.lock:/opt/drupal/composer.lock
       - ./config:/config-sync
-      - ./themes:/var/www/html/themes
+      - ./themes:/var/www/html/themes/custom
       - ./modules:/var/www/html/modules/custom
       - modules:/var/www/html/modules/contrib
     restart: always

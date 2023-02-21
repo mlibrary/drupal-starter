@@ -1,4 +1,4 @@
-FROM drupal:9.5.2-apache
+FROM drupal:10.0.3-apache
 
 RUN apt-get update -yqq && apt-get install -yqq --no-install-recommends \
   default-mysql-client
@@ -10,5 +10,5 @@ RUN composer install
 
 COPY settings.php /var/www/html/sites/default/settings.php
 COPY config /config-sync
-COPY themes /var/www/html/themes
+COPY themes /var/www/html/themes/custom
 COPY modules /var/www/html/modules/custom
